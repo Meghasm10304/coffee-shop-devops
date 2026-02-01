@@ -1,0 +1,29 @@
+name: Build and Deploy Coffee Shop App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Docker image
+      run: docker build -t coffee-shop-app .
+
+    - name: Run container (for demo)
+      run: |
+        docker stop coffee-shop-demo || true
+        docker rm coffee-shop-demo || true
+        docker run -d -p 8080:80 --name coffee-shop-demo coffee-shop-app
+
+    - name: Show running containers
+      run: docker ps
