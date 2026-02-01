@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Shop Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Coffee Shop Registration ☕</h2>
+
+    <form id="regForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+
+        <select required>
+            <option value="">Favorite Coffee</option>
+            <option>Espresso</option>
+            <option>Cappuccino</option>
+            <option>Latte</option>
+            <option>Americano</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="msg"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
